@@ -23,7 +23,7 @@ jobs:
           flavor: |
               latest=false
           tags: |
-            type=raw,value={{date +'%Y-%m-%d_%H-%M'}}
+            type=raw,value={{date 'YYYY-MM-DD_HH-MM'}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
