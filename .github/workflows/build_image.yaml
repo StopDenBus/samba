@@ -14,9 +14,6 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: Set current date as env variable
-        run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-
       - name: Docker meta
         uses: docker/metadata-action@v4
         id: meta
@@ -26,7 +23,7 @@ jobs:
           flavor: |
               latest=false
           tags: |
-            type=semver,pattern={{version}}              
+            type=raw,value={{date +'%Y-%m-%d_%H-%M'}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -46,5 +43,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/stopdenbus/samba/samba:${{ env.NOW }}
-          labels: ${{ steps.tag_version.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
