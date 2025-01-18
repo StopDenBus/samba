@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * 0"      
   workflow_dispatch:
 
 jobs:
@@ -12,11 +14,8 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: Bump version and push tag
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v6.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set current date as env variable
+        run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
 
       - name: Docker meta
         uses: docker/metadata-action@v4
@@ -47,5 +46,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/stopdenbus/samba/samba:${{ steps.tag_version.outputs.new_tag }}
+          tags: ghcr.io/stopdenbus/samba/samba:${{ env.NOW }}
           labels: ${{ steps.tag_version.outputs.labels }}
