@@ -55,4 +55,3 @@ jobs:
           keep-n-tagged: 2
           packages: samba/samba
           older-than: 4 weeks
-          dry-run: true
