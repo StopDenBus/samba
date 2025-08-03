@@ -1,4 +1,4 @@
-FROM ubuntu:rolling
+FROM ubuntu:noble
 RUN \
     apt update && \
     apt upgrade -y && \
