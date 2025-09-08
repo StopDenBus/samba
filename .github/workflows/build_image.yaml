@@ -25,7 +25,7 @@ jobs:
           flavor: |
               latest=false
           tags: |
-            type=schedule,pattern={{date 'YYYY.MM.DD' tz=Europe/Berlin}}
+            type=raw,value={{date 'YY.MM.DD'}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
