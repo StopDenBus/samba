@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  samba:
+  - annotations:
+      category: Infrastructure
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2025-09-21T12:38:45.916575392Z"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Samba is the standard Windows interoperability suite of programs
+      for Linux and Unix.
+    digest: f9c41926cdd0778727e4f3b6ec586e76143b5383aa8201cb0035b471e09d8550
+    name: samba
+    type: application
+    urls:
+    - https://github.com/StopDenBus/samba/releases/download/samba-0.0.1/samba-0.0.1.tgz
+    version: 0.0.1
+generated: "2025-09-21T12:38:45.916585411Z"
