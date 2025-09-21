@@ -22,8 +22,6 @@ jobs:
         with:
           images: |
             ghcr.io/stopdenbus/samba/samba
-          flavor: |
-              latest=false
           tags: |
             type=raw,value={{date 'YY.MM.DD'}}
 
