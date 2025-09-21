@@ -402,8 +402,8 @@ samba:
   ##
   initContainers:
     - name: fetch-root-server-list
-      image: ghcr.io/stopdenbus/samba/samba:2025-08-10_020892
-      imagePullPolicy: IfNotPresent
+      image: ghcr.io/stopdenbus/samba/samba:latest
+      imagePullPolicy: Always
       command:
         - /bin/sh
         - -c
