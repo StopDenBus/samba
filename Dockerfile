@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:resolute
 RUN \
     apt update && \
     apt upgrade -y && \
